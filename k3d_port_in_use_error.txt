@@ -1,0 +1,29 @@
+$ k3d cluster create test-ingress -p "8081:80@loadbalancer" --agents 2
+INFO[0000] portmapping '8081:80' targets the loadbalancer: defaulting to [servers:*:proxy agents:*:proxy] 
+INFO[0000] Prep: Network                                
+INFO[0000] Created network 'k3d-test-ingress'           
+INFO[0000] Created image volume k3d-test-ingress-images 
+INFO[0000] Starting new tools node...                   
+INFO[0000] Starting Node 'k3d-test-ingress-tools'       
+INFO[0001] Creating node 'k3d-test-ingress-server-0'    
+INFO[0001] Creating node 'k3d-test-ingress-agent-0'     
+INFO[0002] Creating node 'k3d-test-ingress-agent-1'     
+INFO[0002] Creating LoadBalancer 'k3d-test-ingress-serverlb' 
+INFO[0002] Using the k3d-tools node to gather environment information 
+INFO[0002] Starting new tools node...                   
+INFO[0002] Starting Node 'k3d-test-ingress-tools'       
+INFO[0004] Starting cluster 'test-ingress'              
+INFO[0004] Starting servers...                          
+INFO[0004] Starting Node 'k3d-test-ingress-server-0'    
+INFO[0011] Starting agents...                           
+INFO[0012] Starting Node 'k3d-test-ingress-agent-1'     
+INFO[0012] Starting Node 'k3d-test-ingress-agent-0'     
+INFO[0020] Starting helpers...                          
+INFO[0021] Starting Node 'k3d-test-ingress-serverlb'    
+ERRO[0021] Failed Cluster Start: Failed to add one or more helper nodes: runtime failed to start node 'k3d-test-ingress-serverlb': docker failed to start container for node 'k3d-test-ingress-serverlb': Error response from daemon: driver failed programming external connectivity on endpoint k3d-test-ingress-serverlb (53432850950abfc5e72fc00dca12017e05814e7191c3ec02eb4e4f0078092062): Bind for 0.0.0.0:8081 failed: port is already allocated 
+ERRO[0021] Failed to create cluster >>> Rolling Back    
+INFO[0021] Deleting cluster 'test-ingress'              
+INFO[0023] Deleting cluster network 'k3d-test-ingress'  
+INFO[0023] Deleting 2 attached volumes...               
+WARN[0024] Failed to delete volume 'k3d-test-ingress-images' of cluster 'test-ingress': failed to find volume 'k3d-test-ingress-images': Error: No such volume: k3d-test-ingress-images -> Try to delete it manually 
+FATA[0024] Cluster creation FAILED, all changes have been rolled back!
